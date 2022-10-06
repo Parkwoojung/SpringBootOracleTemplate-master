@@ -8,18 +8,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
+@RequestMapping("/mail")
 @Slf4j
 
+//메일 발송 컨트롤러
 public class MailController {
     @Resource(name = "MailService")
     private IMailService mailService;
 
-    @GetMapping(value = "mail/mailForm")
+    @GetMapping(value = "mail/mailForm") //url 선정하기
     public String mailForm() throws Exception {
         return "/mail/mailForm";
     }
